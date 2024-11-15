@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en" >
+<head>
+  <meta charset="UTF-8">
+  <title>bal game</title>
+  
+
+</head>
+<body>
+<!-- partial:index.partial.html -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bouncing Ball Game</title>
+    <style>
+        /* Algemene stijl */
+        body {
+            margin: 0;
+            overflow: hidden;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(135deg, #1e3c72, #2a5298);
+            color: white;
+        }
+
+        canvas {
+            background-color: #111;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            border-radius: 10px;
+        }
+
+        #score {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 20px;
+            font-weight: bold;
+            z-index: 2;
+        }
+
+        /* Game over scherm */
+        #gameOver {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            z-index: 3;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #gameOver h1 {
+            font-size: 50px;
+            margin: 0;
+            color: #ff6b6b;
+        }
+
+        #gameOver p {
+            font-size: 20px;
+            margin: 15px 0;
+            color: #f4f4f4;
+        }
+
+        #gameOver button {
+            font-size: 18px;
+            color: white;
+            background: #007bff;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        #gameOver button:hover {
+            background: #0056b3;
+        }
+
+        /* Skins-menu */
+        #skinsMenu {
+            display: none;
+            position: absolute;
+            top: 50px;
+            right: 10px;
+            z-index: 4;
+            background: rgba(0, 0, 0, 0.8);
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
+        }
+
+        #skinsMenu button {
+            font-size: 14px;
+            color: white;
+            background: none;
+            border: 2px solid white;
+            padding: 5px 10px;
+            margin: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        #skinsMenu button:hover {
+            background: white;
+            color: black;
+        }
+
+        /* Tegeltje */
+#skinTile {
+    display: none;
+    position: absolute;
+    top: 10px;
+    right: 10px; /* Gebruik 'right' in plaats van 'left' */
+    width: 50px;
+    height: 50px;
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    z-index: 4;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+    color: white;
+    font-weight: bold;
+}
+
+#skinTile:hover {
+    background: linear-gradient(135deg, #0056b3, #003c7b);
+}    </style>
+</head>
+<body>
+    <div id="score">Score: 0</div>
+    <div id="gameOver">
+        <h1>Game Over</h1>
+        <p>Your final score: <span id="finalScore"></span></p>
+        <button onclick="restartGame()">Restart Game</button>
+    </div>
+    <div id="skinsMenu">
+        <h3>Choose Ball Skin</h3>
+        <button onclick="changeBallColor('red')" style="background-color: red;"></button>
+        <button onclick="changeBallColor('blue')" style="background-color: blue;"></button>
+        <button onclick="changeBallColor('green')" style="background-color: green;"></button>
+        <button onclick="changeBallColor('yellow')" style="background-color: yellow;"></button>
+        <button onclick="changeBallColor('purple')" style="background-color: purple;"></button>
+    </div>
+    <div id="skinTile" onclick="toggleSkinsMenu()">Skins</div>
+    <canvas id="gameCanvas" width="600" height="400"></canvas>
+
+    <script src="game.js"></script>
+</body>
+</html>
+<!-- partial -->
+  <script  src="./script.js"></script>
+
+</body>
+</html>
